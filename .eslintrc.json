@@ -1,0 +1,49 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "semi": "off",
+    "implicit-arrow-linebreak": "off",
+    "no-param-reassign": 0,
+    "operator-linebreak": "off",
+    "prefer-rest-params": "off",
+    "no-continue": "off",
+    "no-restricted-syntax": "off",
+    "max-len": ["error", {
+      "code": 100
+    }],
+    "jsx-quotes": ["error", "prefer-single"],
+    "jsx-a11y/label-has-associated-control": [ "error", {
+      "required": {
+        "some": [ "nesting", "id"  ]
+      }
+    }],
+    "@typescript-eslint/comma-dangle": "off",
+    "object-curly-newline": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/no-array-index-key": "off",
+    "@typescript-eslint/semi": [
+      "warn"
+    ],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ]
+  },
+  "extends": [
+    "airbnb",
+    "airbnb-typescript"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}
