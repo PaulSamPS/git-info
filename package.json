@@ -62,7 +62,12 @@
   },
   "lint-staged": {
     "*.(css|scss)": [
-      "stylelint --fix"
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.(ts|tsx)": [
+      "npm run lint",
+      "git add"
     ]
   }
 }
