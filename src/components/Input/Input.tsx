@@ -10,7 +10,7 @@ export const Input = forwardRef(
   ): JSX.Element => (
     <div className={cn(className, styles.input, { [styles.icon]: icon })}>
       {icon && <label htmlFor='search'>{icon}</label>}
-      <input ref={ref} className={styles.textField} {...props} />
+      <input ref={ref} className={styles.text} {...props} />
     </div>
   )
 );

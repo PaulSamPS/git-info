@@ -7,6 +7,7 @@ import styles from './Spinner.module.scss';
 export const Spinner = React.memo(
   ({
     position = 'absolute',
+    color,
     'aria-label': ariaLabel = 'Загружается...',
     ...restProps
   }: SpinnerProps) => (
@@ -15,7 +16,7 @@ export const Spinner = React.memo(
       aria-label={ariaLabel}
       {...restProps}
       className={cn(styles.spinner, restProps.className)}
-      style={{ position }}
+      style={{ position, color }}
     >
       <IconSpinner aria-hidden='true' className={styles.self} />
     </span>

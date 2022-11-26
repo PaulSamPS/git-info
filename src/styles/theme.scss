@@ -1,23 +1,19 @@
 body[data-theme='light'] {
-  --color: var(--gray-300);
-  --color-hover: var(--gray-100);
-  --bg: var(--white);
-  --bg-2: var(--gray-50);
-  --shadow-theme: var(--shadow);
+	--color: var(--gray-300);
+	--color-hover: var(--gray-100);
+	--bg: var(--white);
+	--bg-2: var(--gray-50);
+	--shadow-theme: var(--shadow);
+
+	background-color: var(--bg-2);
 }
 
 body[data-theme='dark'] {
-  --color: var(--gray);
-  --color-hover: var(--gray-100);
-  --bg: var(--gray-400);
-  --bg-2: var(--gray-500);
-  --shadow-theme: unset;
-}
+	--color: var(--gray);
+	--color-hover: var(--gray-100);
+	--bg: var(--gray-400);
+	--bg-2: var(--gray-500);
+	--shadow-theme: unset;
 
-body[data-theme='light'] {
-  background-color: var(--bg-2);
-}
-
-body[data-theme='dark'] {
-  background-color: var(--bg-2);
+	background-color: var(--bg-2);
 }

@@ -18,7 +18,7 @@ export const Button = ({
     className={cn(styles.button, className)}
   >
     {loading ? (
-      <Spinner className={styles.loading} position='relative' />
+      <Spinner className={styles.loading} position='relative' color='white' />
     ) : (
       children
     )}
