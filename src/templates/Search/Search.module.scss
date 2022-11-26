@@ -1,0 +1,17 @@
+.search {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 10px 10px 16px;
+  background-color: var(--bg, white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-theme);
+  border-radius: 15px;
+  color: var(--color);
+
+  @media (min-width: 767px) {
+    padding: 10px 10px 10px 30px;
+  }
+}

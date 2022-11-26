@@ -1,0 +1,41 @@
+.input {
+  width: 100%;
+
+  label {
+    margin-top: 5px;
+    display: inline-block;
+  }
+
+  .textField {
+    padding: 5px 10px;
+    flex-grow: 5;
+    max-width: calc(100% - 20px);
+    border: none;
+    color: var(--color);
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+    background-color: var(--bg);
+
+    &::placeholder {
+      color: var(--color);
+      font-size: 12px;
+      font-family: 'Space Mono', monospace;
+    }
+
+    &:focus {
+      outline: none;
+      cursor: text;
+    }
+
+    @media (min-width: 767px) {
+      margin: 0 5px;
+      font-size: 14px;
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}

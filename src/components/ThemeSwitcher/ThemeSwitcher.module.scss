@@ -1,0 +1,31 @@
+.switcher {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+
+  span {
+    color: var(--color);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    transition: all ease .2s;
+  }
+
+  svg {
+    fill: var(--color);
+    width: 14px;
+    height: 14px;
+    transition: all ease .2s;
+  }
+
+  &:hover {
+    span {
+      color: var(--color-hover);
+    }
+
+    svg {
+      fill: var(--color-hover);
+    }
+  }
+}
