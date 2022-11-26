@@ -1,9 +1,3 @@
-import { Header, Search } from 'templates';
 import React from 'react';
 
-export const Main = () => (
-  <>
-    <Header />
-    <Search />
-  </>
-);
+export const Main = () => <h1>Main</h1>;
