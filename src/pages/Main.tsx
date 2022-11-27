@@ -1,3 +1,4 @@
 import React from 'react';
+import { SearchList } from 'templates';
 
-export const Main = () => <h1>Main</h1>;
+export const Main = () => <SearchList />;

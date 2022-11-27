@@ -1,12 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
-import { Spinner } from 'components';
+import { Spinner } from 'components/index';
 import { ButtonProps } from './Button.props';
 import styles from './Button.module.scss';
 
 export const Button = ({
   loading,
   type,
+  width,
   children,
   className,
   ...restProps
@@ -15,6 +16,7 @@ export const Button = ({
     {...restProps}
     /* eslint-disable-next-line react/button-has-type */
     type={type}
+    style={{ width }}
     className={cn(styles.button, className)}
   >
     {loading ? (

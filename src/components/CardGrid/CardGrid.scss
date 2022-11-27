@@ -1,0 +1,14 @@
+.grid {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+.info {
+	@media (min-width: 767px) {
+		display: grid;
+		grid-template-columns: repeat(2, 50%);
+		grid-template-rows: repeat(2, 1fr);
+		grid-auto-flow: column;
+	}
+}

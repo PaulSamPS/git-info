@@ -7,13 +7,13 @@ export const Header = () => {
   const { theme, toggleThemeKeyboard, toggleTheme } = useTheme();
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <Logo>GitInfo</Logo>
       <ThemeSwitcher
         theme={theme}
         toggleTheme={toggleTheme}
         toggleThemeKeyboard={toggleThemeKeyboard}
       />
-    </div>
+    </header>
   );
 };

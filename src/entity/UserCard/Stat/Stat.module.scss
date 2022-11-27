@@ -1,0 +1,26 @@
+.stat {
+	background-color: var(--bg-2);
+	color: var(--color);
+	padding: 15px 32px;
+	border-radius: 10px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+
+	.info {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		&Title {
+			color: var(--color);
+			font-size: 12px;
+			line-height: 1.5;
+		}
+
+		&Number {
+			font-size: 20px;
+			line-height: 1.5;
+			font-weight: 700;
+		}
+	}
+}

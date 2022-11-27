@@ -21,6 +21,7 @@
         "some": [ "nesting", "id"  ]
       }
     }],
+    "@typescript-eslint/indent": "off",
     "@typescript-eslint/comma-dangle": "off",
     "object-curly-newline": "off",
     "import/extensions": "off",

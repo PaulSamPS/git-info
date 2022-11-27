@@ -2,7 +2,7 @@
 	padding: 5px 24px 6px;
 	border-radius: 10px;
 	border: none;
-	background-color: var(--gray-200);
+	background-color: var(--green-color);
 	color: var(--white);
 	font-size: 14px;
 	cursor: pointer;
@@ -10,8 +10,15 @@
 	font-family: 'Space Mono', monospace;
 	flex-shrink: 0;
 
-	&:hover {
-		background-color: var(--gray-100);
+	&:disabled {
+		cursor: default;
+		opacity: 0.7;
+	}
+
+	&:enabled {
+		&:hover {
+			filter: brightness(120%);
+		}
 	}
 }
 

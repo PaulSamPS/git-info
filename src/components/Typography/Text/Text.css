@@ -1,0 +1,20 @@
+.Text {
+  display: block;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color);
+}
+
+.Text--w-1 {
+  font-weight: 600;
+}
+
+.Text--w-2 {
+  font-weight: 500;
+}
+
+.Text--w-3 {
+  font-weight: 400;
+}
