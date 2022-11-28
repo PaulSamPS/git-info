@@ -8,6 +8,7 @@ export const Title = ({
   weight,
   level = '1',
   Component,
+  before,
   ...restProps
 }: TitleProps) => {
   if (!Component) {
@@ -20,9 +21,11 @@ export const Title = ({
       className={classNames(
         'title',
         `title-l-${level}`,
-        weight && `title-w-${weight}`
+        weight && `title-w-${weight}`,
+        before && 'title-color'
       )}
     >
+      {before && before}
       {children}
     </Component>
   );

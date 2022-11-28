@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { HasComponent, HasRootRef } from 'types';
+import { HasComponent } from 'types';
 
 export interface TextProps
   extends React.AllHTMLAttributes<HTMLElement>,
-  HasRootRef<HTMLElement>,
-  HasComponent {
+    HasComponent {
   weight?: '1' | '2' | '3';
+  before?: React.ReactNode;
 }

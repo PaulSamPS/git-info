@@ -20,8 +20,8 @@
 			filter: brightness(120%);
 		}
 	}
-}
 
-.loading {
-	cursor: progress;
+	&-loading {
+		cursor: progress;
+	}
 }

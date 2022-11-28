@@ -1,8 +1,7 @@
 import React from 'react';
-import cn from 'classnames';
 import { IconSpinner } from './assets';
 import { SpinnerProps } from './Spinner.props';
-import styles from './Spinner.module.scss';
+import './Spinner.scss';
 
 export const Spinner = React.memo(
   ({
@@ -14,11 +13,11 @@ export const Spinner = React.memo(
     <span
       role='status'
       aria-label={ariaLabel}
-      {...restProps}
-      className={cn(styles.spinner, restProps.className)}
+      className='spinner'
       style={{ position, color }}
+      {...restProps}
     >
-      <IconSpinner aria-hidden='true' className={styles.self} />
+      <IconSpinner aria-hidden='true' className='spinner-self' />
     </span>
   )
 );

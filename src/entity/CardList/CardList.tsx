@@ -5,8 +5,8 @@ import { CardListProps } from './CardList.props';
 
 export const CardList = ({ avatar, login }: CardListProps) => (
   <Card>
-    <Avatar avatar={avatar} login={login} width={120} height={120} />
-    <CardGrid>
+    <Avatar avatar={avatar} login={login} />
+    <CardGrid gap={20}>
       <Title level='2' weight='2'>
         {login}
       </Title>

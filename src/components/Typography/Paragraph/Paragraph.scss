@@ -1,0 +1,20 @@
+.paragraph {
+	font-size: 12px;
+	line-height: 20px;
+	font-weight: 400;
+	padding: 0;
+	margin: 0;
+	color: var(--color);
+
+	&-w-1 {
+		font-weight: 600;
+	}
+
+	&-w-2 {
+		font-weight: 500;
+	}
+
+	&-w-3 {
+		font-weight: 400;
+	}
+}

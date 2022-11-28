@@ -5,12 +5,14 @@ import './CardGrid.scss';
 
 export const CardGrid = ({
   children,
-  appearance,
+  column,
+  gap,
   ...restProps
 }: CardGridProps) => (
   <div
+    className={classNames('grid', column && `grid-column-${column}`)}
+    style={{ gap }}
     {...restProps}
-    className={classNames('grid', appearance && `${appearance}`)}
   >
     {children}
   </div>

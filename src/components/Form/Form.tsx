@@ -1,7 +1,9 @@
 import React from 'react';
 import { FormProps } from './Form.props';
-import styles from './Form.module.scss';
+import './Form.scss';
 
-export const Form = ({ children }: FormProps) => (
-  <form className={styles.form}>{children}</form>
+export const Form = ({ children, ...restProps }: FormProps) => (
+  <form className='form' {...restProps}>
+    {children}
+  </form>
 );

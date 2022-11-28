@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { classNames } from 'lib';
-import './Caption.css';
+import './Caption.scss';
 import { CaptionProps } from './Caption.props';
 
 export const Caption = ({
@@ -14,11 +14,10 @@ export const Caption = ({
   <Component
     {...restProps}
     className={classNames(
-      'Caption',
-      `Caption--l-${level}`,
-      caps && 'Caption--caps',
-      weight && `Caption--w-${weight}`,
-      restProps.className
+      'caption',
+      `caption-l-${level}`,
+      caps && 'caption-caps',
+      weight && `caption-w-${weight}`
     )}
   >
     {children}

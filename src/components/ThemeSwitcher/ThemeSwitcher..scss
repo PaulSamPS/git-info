@@ -1,7 +1,7 @@
 .switcher {
 	display: flex;
 	align-items: center;
-	gap: 1rem;
+	gap: 5px;
 	cursor: pointer;
 
 	span {
@@ -10,6 +10,7 @@
 		text-transform: uppercase;
 		letter-spacing: 2.5px;
 		transition: all ease 0.2s;
+		margin-top: 3px;
 	}
 
 	svg {

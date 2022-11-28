@@ -1,4 +1,10 @@
-import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type UseSearch = {
@@ -11,6 +17,14 @@ export const useSearch = (): UseSearch => {
   const [text, setText] = useState<string>('');
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (text.length > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [text]);
 
   const handleSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>): void => {
@@ -28,7 +42,6 @@ export const useSearch = (): UseSearch => {
   const handleOnChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setText(value);
-    setIsDisabled(false);
   }, []);
 
   return { handleSubmit, handleOnChange, isDisabled };

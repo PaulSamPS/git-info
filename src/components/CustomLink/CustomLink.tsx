@@ -1,14 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { classNames } from 'lib';
 import { CustomLinkProps } from './CustomLink.props';
-import styles from './CustomLink.module.scss';
+import './CustomLink.scss';
 
 export const CustomLink = ({
   children,
   to,
-  ...props
+  size,
+  empty,
+  ...restProps
 }: CustomLinkProps): JSX.Element => (
-  <Link to={to} className={styles.link} {...props}>
+  <Link
+    to={to}
+    className={classNames('link', empty && 'empty')}
+    style={{ fontSize: `${size}px` }}
+    {...restProps}
+  >
     {children}
   </Link>
 );

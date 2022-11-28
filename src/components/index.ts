@@ -6,6 +6,7 @@ export * from './ThemeSwitcher/ThemeSwitcher';
 export * from './Input/Input';
 export * from './Form/Form';
 export * from './Card/Card';
+export * from './Header/Header';
 export * from './CustomLink/CustomLink';
 export * from './Avatar/Avatar';
 export * from './CardGrid/CardGrid';

@@ -1,14 +1,23 @@
 .grid {
 	display: flex;
 	flex-direction: column;
-	row-gap: 20px;
-}
 
-.info {
-	@media (min-width: 767px) {
+	&-column-2 {
+		@media (min-width: 767px) {
+			display: grid;
+			grid-template-columns: repeat(2, 50%);
+			grid-template-rows: repeat(2, 1fr);
+			grid-auto-flow: column;
+		}
+	}
+
+	&-column-3 {
+		background-color: var(--bg-2);
+		color: var(--color);
+		padding: 15px 32px;
+		border-radius: 10px;
 		display: grid;
-		grid-template-columns: repeat(2, 50%);
-		grid-template-rows: repeat(2, 1fr);
-		grid-auto-flow: column;
+		grid-template-columns: repeat(3, 1fr);
+		text-align: center;
 	}
 }

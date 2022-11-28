@@ -6,7 +6,7 @@
 		display: inline-block;
 	}
 
-	.text {
+	&-text {
 		padding: 5px 10px;
 		flex-grow: 5;
 		max-width: calc(100% - 20px);
@@ -33,9 +33,9 @@
 			font-size: 14px;
 		}
 	}
-}
 
-.icon {
-	display: flex;
-	align-items: center;
+	&-icon {
+		display: flex;
+		align-items: center;
+	}
 }

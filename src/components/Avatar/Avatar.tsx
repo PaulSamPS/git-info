@@ -1,12 +1,12 @@
 import React from 'react';
 import { AvatarProps } from './Avatar.props';
-import styles from './Avatar.module.scss';
+import './Avatar.scss';
 
-export const Avatar = ({ avatar, login, ...props }: AvatarProps) => (
+export const Avatar = ({ avatar, login, ...restProps }: AvatarProps) => (
   <img
     src={avatar || undefined}
     alt={login}
-    className={styles.avatar}
-    {...props}
+    className='avatar'
+    {...restProps}
   />
 );

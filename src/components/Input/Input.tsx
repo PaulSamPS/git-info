@@ -1,16 +1,16 @@
 import React, { ForwardedRef, forwardRef } from 'react';
-import cn from 'classnames';
+import { classNames } from 'lib';
 import { InputProps } from './Input.props';
-import styles from './Input.module.scss';
+import './Input.scss';
 
 export const Input = forwardRef(
   (
-    { icon, className, ...props }: InputProps,
+    { icon, className, ...restProps }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => (
-    <div className={cn(className, styles.input, { [styles.icon]: icon })}>
+    <div className={classNames('input', icon && 'input-icon')}>
       {icon && <label htmlFor='search'>{icon}</label>}
-      <input ref={ref} className={styles.text} {...props} />
+      <input ref={ref} className='input-text' {...restProps} />
     </div>
   )
 );
