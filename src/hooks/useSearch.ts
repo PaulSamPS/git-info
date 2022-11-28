@@ -7,8 +7,7 @@ import {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
-import { setSearchText } from '../redux/search/searchSlice';
-import { searchAction } from '../redux/search/searchAction';
+import { searchAction, setSearchText } from 'redux/search';
 
 type UseSearch = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -36,6 +35,7 @@ export const useSearch = (): UseSearch => {
 
       if (text.trim()) {
         dispatch(searchAction(text));
+        dispatch(setSearchText(text));
         e.currentTarget.reset();
         setIsDisabled(true);
         navigate('/');
@@ -47,7 +47,6 @@ export const useSearch = (): UseSearch => {
   const handleOnChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setText(value);
-    dispatch(setSearchText(value));
   }, []);
 
   return { handleSubmit, handleOnChange, isDisabled };

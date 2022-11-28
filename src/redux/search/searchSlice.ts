@@ -5,7 +5,7 @@ import { searchAction } from 'redux/search';
 
 type UserSlice = {
   users: LocalSearchUsersItem[];
-  error: string;
+  error: unknown;
   isLoading: boolean;
   totalCount: number | null;
   currentPage: number;
@@ -14,7 +14,7 @@ type UserSlice = {
 
 const initialState: UserSlice = {
   users: [],
-  error: '',
+  error: null,
   isLoading: false,
   totalCount: null,
   currentPage: 1,
@@ -40,15 +40,14 @@ const searchUsers = createSlice({
           const { totalCount, items } = action.payload;
           state.users = extractSearchItems(items);
           state.totalCount = totalCount;
-          state.error = '';
+          state.error = null;
           state.isLoading = false;
         }
       )
       .addCase(searchAction.rejected, (state, action) => {
-        state.error = action.error.message || 'Ошибка получения данных...';
+        state.error = action.payload;
         state.users = [];
-        state.totalCount = 0;
-        state.text = '';
+        state.totalCount = null;
         state.isLoading = false;
       });
   },
