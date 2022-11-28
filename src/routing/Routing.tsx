@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Main, Profile } from 'pages';
+
+const Main = lazy(() => import('pages/Main'));
+const Profile = lazy(() => import('pages/Profile'));
 
 export const Routing = () => (
   <Routes>

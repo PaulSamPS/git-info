@@ -3,7 +3,7 @@ import { CardGrid } from 'components';
 import { NameType } from 'types/components';
 
 export const Name = ({ name, login, joinedDate }: NameType) => (
-  <CardGrid column='2' gap={10}>
+  <CardGrid column='2' gap={10} align='baseline'>
     <Title weight='2' level='1'>
       {name || 'Отсутствует'}
     </Title>

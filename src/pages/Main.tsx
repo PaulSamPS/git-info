@@ -1,4 +1,6 @@
 import React from 'react';
 import { SearchList } from 'templates';
 
-export const Main = () => <SearchList />;
+const Main = () => <SearchList />;
+
+export default Main;

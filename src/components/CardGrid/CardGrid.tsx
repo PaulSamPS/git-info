@@ -7,10 +7,15 @@ export const CardGrid = ({
   children,
   column,
   gap,
+  align,
   ...restProps
 }: CardGridProps) => (
   <div
-    className={classNames('grid', column && `grid-column-${column}`)}
+    className={classNames(
+      'grid',
+      column && `grid-column-${column}`,
+      align && `grid-align-${align}`
+    )}
     style={{ gap }}
     {...restProps}
   >

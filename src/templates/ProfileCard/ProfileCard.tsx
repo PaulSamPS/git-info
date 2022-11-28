@@ -1,7 +1,7 @@
-import { Avatar, Card } from 'components';
-import { Name, Stat } from 'entity/Profile';
 import React from 'react';
-import { Bio } from '../../entity/Profile/Bio/Bio';
+import { Avatar, Card } from 'components';
+import { Name, Stat, Bio } from 'entity/Profile';
+import { toLocalDate } from 'helpers';
 
 const user = {
   login: 'PaulSamPS',
@@ -11,7 +11,7 @@ const user = {
   blog: 'https://resume-paulsamps.vercel.app',
   location: 'Orenburg',
   // eslint-disable-next-line max-len
-  bio: 'Целеустремленный frontend разработчик со страстью к разработке пользовательского интерфейса, сотрудничеству и обучению. ',
+  bio: 'описание ',
   twitter: null,
   repos: 35,
   followers: 0,
@@ -22,7 +22,11 @@ const user = {
 export const ProfileCard = () => (
   <Card>
     <Avatar login={user.login} avatar={user.avatar} />
-    <Name joinedDate={user.created} login={user.login} name={user.name} />
+    <Name
+      joinedDate={toLocalDate(user.created)}
+      login={user.login}
+      name={user.name}
+    />
     <Bio bio={user.bio} />
     <Stat
       followers={user.followers}
