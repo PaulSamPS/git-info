@@ -1,8 +1,8 @@
 import { CardGrid, CustomLink } from 'components';
 import { Caption } from 'components/Typography';
-import { StatProps } from './Stat.props';
+import { StatType } from 'types/components';
 
-export const Stat = ({ repos, following, followers }: StatProps) => (
+export const Stat = ({ repos, following, followers }: StatType) => (
   <CardGrid column='3'>
     <CardGrid gap={8}>
       <Caption weight='2' level='3'>

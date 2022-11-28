@@ -1,10 +1,14 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Spinner } from 'components';
+import { Provider } from 'react-redux';
+import { store } from 'redux/store';
 
 export const withRouter = (component: () => React.ReactNode) => () =>
   (
     <BrowserRouter>
-      <Suspense fallback={<Spinner />}>{component()}</Suspense>
+      <Provider store={store}>
+        <Suspense fallback={<Spinner />}>{component()}</Suspense>
+      </Provider>
     </BrowserRouter>
   );

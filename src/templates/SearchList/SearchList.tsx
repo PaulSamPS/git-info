@@ -1,22 +1,23 @@
 import React from 'react';
-import { CardList } from '../../entity';
+import { CardList } from 'entity';
+import { useSelector } from 'react-redux';
+import { Card, Spinner } from 'components';
+import { selector } from '../../redux/selector';
 
-const us = [
-  {
-    avatar:
-      'https://i.pinimg.com/originals/99/db/2e/99db2e985dbafb13a033f9ae7c345669.jpg',
-    login: '1',
-  },
-  {
-    avatar: 'https://abc-decor.com/img/gallery/31/thumbs/thumb_l_0985.jpg',
-    login: '2',
-  },
-];
+export const SearchList = () => {
+  const { users, isLoading } = useSelector(selector);
 
-export const SearchList = () => (
-  <main>
-    {us.map((u) => (
-      <CardList key={u.login} login={u.login} avatar={u.avatar} />
-    ))}
-  </main>
-);
+  return (
+    <main>
+      {isLoading ? (
+        <Card>
+          <Spinner position='absolute' />
+        </Card>
+      ) : (
+        users.map((user) => (
+          <CardList key={user.login} login={user.login} avatar={user.avatar} />
+        ))
+      )}
+    </main>
+  );
+};

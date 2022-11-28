@@ -6,6 +6,9 @@ import {
   useState,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'hooks';
+import { setSearchText } from '../redux/search/searchSlice';
+import { searchAction } from '../redux/search/searchAction';
 
 type UseSearch = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -16,6 +19,7 @@ type UseSearch = {
 export const useSearch = (): UseSearch => {
   const [text, setText] = useState<string>('');
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,9 +35,10 @@ export const useSearch = (): UseSearch => {
       e.preventDefault();
 
       if (text.trim()) {
-        navigate('/');
+        dispatch(searchAction(text));
         e.currentTarget.reset();
         setIsDisabled(true);
+        navigate('/');
       }
     },
     [text]
@@ -42,6 +47,7 @@ export const useSearch = (): UseSearch => {
   const handleOnChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setText(value);
+    dispatch(setSearchText(value));
   }, []);
 
   return { handleSubmit, handleOnChange, isDisabled };

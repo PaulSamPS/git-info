@@ -1,13 +1,13 @@
 import React from 'react';
 import { CardGrid, CustomLink } from 'components';
-import { InfoType } from './Info.type';
+import { InfoType } from 'types/components';
 
 export const Info = ({ text, icon, isLink }: InfoType) => {
   const currentText = text || 'Отсутствует';
   let currentHref = '';
 
   if (isLink) {
-    currentHref = text && text.startsWith('http') ? text : `https://${text}`;
+    currentHref = text && text.startsWith('api') ? text : `https://${text}`;
   }
 
   return (
