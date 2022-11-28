@@ -8,6 +8,7 @@
 	grid-template-columns: 70px 1fr;
 	gap: 25px 20px;
 	position: relative;
+	border: 1px solid var(--border-theme);
 
 	& > *:nth-child(n + 3) {
 		grid-column: 1 / span 2;

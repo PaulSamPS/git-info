@@ -9,6 +9,7 @@
 	box-shadow: var(--shadow-theme);
 	border-radius: 15px;
 	color: var(--color);
+	border: 1px solid var(--border-theme);
 
 	@media (min-width: 767px) {
 		padding: 10px 10px 10px 30px;

@@ -4,6 +4,7 @@ body[data-theme='light'] {
 	--bg: var(--white);
 	--bg-2: var(--gray-50);
 	--shadow-theme: var(--shadow);
+	--border-theme: transparent;
 
 	background-color: var(--bg-2);
 }
@@ -14,6 +15,7 @@ body[data-theme='dark'] {
 	--bg: var(--gray-400);
 	--bg-2: var(--gray-500);
 	--shadow-theme: unset;
+	--border-theme: var(--border);
 
 	background-color: var(--bg-2);
 }
