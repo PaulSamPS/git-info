@@ -10,3 +10,4 @@ export * from './Header/Header';
 export * from './CustomLink/CustomLink';
 export * from './Avatar/Avatar';
 export * from './CardGrid/CardGrid';
+export * from './Error/Error';

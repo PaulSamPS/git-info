@@ -5,7 +5,7 @@ import { searchAction } from 'redux/search';
 
 type UserSlice = {
   users: LocalSearchUsersItem[];
-  error: unknown;
+  error: string | null | unknown;
   isLoading: boolean;
   totalCount: number | null;
   currentPage: number;
@@ -25,8 +25,11 @@ const searchUsers = createSlice({
   name: 'search-users',
   initialState,
   reducers: {
-    setSearchText(state, action: PayloadAction<string>) {
+    setText(state, action: PayloadAction<string>) {
       state.text = action.payload;
+    },
+    setError(state) {
+      state.error = null;
     },
   },
   extraReducers: (builder) => {
@@ -46,6 +49,7 @@ const searchUsers = createSlice({
       )
       .addCase(searchAction.rejected, (state, action) => {
         state.error = action.payload;
+        state.text = '';
         state.users = [];
         state.totalCount = null;
         state.isLoading = false;
@@ -53,6 +57,6 @@ const searchUsers = createSlice({
   },
 });
 
-export const { setSearchText } = searchUsers.actions;
+export const { setText, setError } = searchUsers.actions;
 
 export const usersReducer = searchUsers.reducer;

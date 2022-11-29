@@ -2,18 +2,23 @@ import React from 'react';
 import { CardList } from 'entity';
 import { useSelector } from 'react-redux';
 import { Card, Spinner } from 'components';
-import { selector } from 'redux/selector';
+import { searchSelector } from 'redux/selector';
 import { Text } from 'components/Typography';
 import { endOf } from 'helpers';
 
 export const SearchList = () => {
-  const { users, isLoading, totalCount, text } = useSelector(selector);
+  const { users, isLoading, totalCount, text } = useSelector(searchSelector);
 
   return (
     <main>
       {totalCount && (
         <Text style={{ marginTop: '20px' }}>
-          {`По запросу ${text} найденно ${totalCount} ${endOf(
+          {`По запросу ${text} ${endOf(
+            totalCount,
+            'найден',
+            'найденно',
+            'найденны'
+          )} ${totalCount} ${endOf(
             totalCount,
             'пользователь',
             'пользователя',

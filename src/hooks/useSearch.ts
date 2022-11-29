@@ -7,47 +7,64 @@ import {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
-import { searchAction, setSearchText } from 'redux/search';
+import { searchAction, setError, setText } from 'redux/search';
+import { useSelector } from 'react-redux';
+import { searchSelector } from 'redux/selector';
 
 type UseSearch = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   handleOnChange: (e: ChangeEvent<HTMLInputElement>) => void;
   isDisabled: boolean;
+  isLoading: boolean;
+  error: string;
 };
 
 export const useSearch = (): UseSearch => {
-  const [text, setText] = useState<string>('');
+  const [search, setSearch] = useState<string>('');
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const { isLoading, error } = useSelector(searchSelector);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (text.length > 0) {
+    if (search.length > 0 && error) {
+      dispatch(setError());
+    }
+  }, [search]);
+
+  useEffect(() => {
+    if (search.length > 0) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
-  }, [text]);
+  }, [search]);
 
   const handleSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>): void => {
       e.preventDefault();
 
-      if (text.trim()) {
-        dispatch(searchAction(text));
-        dispatch(setSearchText(text));
+      if (search.trim()) {
+        dispatch(searchAction(search));
+        dispatch(setText(search));
         e.currentTarget.reset();
         setIsDisabled(true);
         navigate('/');
       }
     },
-    [text]
+    [search]
   );
 
   const handleOnChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setText(value);
+    setSearch(value);
   }, []);
 
-  return { handleSubmit, handleOnChange, isDisabled };
+  return <UseSearch>{
+    handleSubmit,
+    handleOnChange,
+    isDisabled,
+    isLoading,
+    error,
+  };
 };
