@@ -1,9 +1,8 @@
 import React, { ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
-import { searchSlice, searchAction } from 'redux/search';
+import { searchSlice, searchAction, searchSelector } from 'redux/search';
 import { useSelector } from 'react-redux';
-import { searchSelector } from 'redux/selector';
 import debounce from 'lodash.debounce';
 
 type UseSearch = {

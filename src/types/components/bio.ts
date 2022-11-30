@@ -1,3 +1,3 @@
 export type BioType = {
-  bio: string;
+  bio: string | null;
 };

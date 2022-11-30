@@ -4,7 +4,7 @@ import { Card, Error, Spinner } from 'components';
 import { Text } from 'components/Typography';
 import { endOf } from 'helpers';
 import { useSelector } from 'react-redux';
-import { searchSelector } from 'redux/selector';
+import { searchSelector } from 'redux/search';
 
 export const SearchList = () => {
   const { users, isLoading, totalCount, text, scrollError } =

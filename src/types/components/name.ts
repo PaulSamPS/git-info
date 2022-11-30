@@ -1,5 +1,5 @@
 export type NameType = {
-  name: string;
+  name: string | null;
   login: string;
   joinedDate: string;
 };

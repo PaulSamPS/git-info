@@ -1,37 +1,37 @@
 import React from 'react';
 import { Avatar, Card } from 'components';
-import { Name, Stat, Bio } from 'entity/Profile';
+import { Stat, Bio, Name } from 'entity/Profile';
 import { toLocalDate } from 'helpers';
+import { useParams } from 'react-router-dom';
+import { useAppDispatch } from 'hooks';
+import { profileAction, profileSelector } from 'redux/profile';
+import { useSelector } from 'react-redux';
 
-const user = {
-  login: 'PaulSamPS',
-  avatar: 'https://avatars.githubusercontent.com/u/56207237?v=4',
-  name: 'Pavel Samoylenko',
-  company: null,
-  blog: 'https://resume-paulsamps.vercel.app',
-  location: 'Orenburg',
-  // eslint-disable-next-line max-len
-  bio: 'описание ',
-  twitter: null,
-  repos: 35,
-  followers: 0,
-  following: 0,
-  created: '2019-10-05T21:37:58Z',
+export const ProfileCard = () => {
+  const { username } = useParams();
+  const dispatch = useAppDispatch();
+  const { user } = useSelector(profileSelector);
+
+  React.useEffect(() => {
+    if (typeof username === 'string') {
+      dispatch(profileAction(username));
+    }
+  }, [username]);
+
+  return (
+    <Card>
+      <Avatar login={user.login} avatar={user.avatar} />
+      <Name
+        joinedDate={user.created && toLocalDate(user.created)}
+        login={user.login}
+        name={user.name}
+      />
+      <Bio bio={user.bio} />
+      <Stat
+        followers={user.followers}
+        following={user.following}
+        repos={user.repos}
+      />
+    </Card>
+  );
 };
-
-export const ProfileCard = () => (
-  <Card>
-    <Avatar login={user.login} avatar={user.avatar} />
-    <Name
-      joinedDate={toLocalDate(user.created)}
-      login={user.login}
-      name={user.name}
-    />
-    <Bio bio={user.bio} />
-    <Stat
-      followers={user.followers}
-      following={user.following}
-      repos={user.repos}
-    />
-  </Card>
-);
