@@ -17,6 +17,14 @@
 	&-w-3 {
 		font-weight: 400;
 	}
+
+	&-color-blue {
+		color: var(--gray-200);
+	}
+
+	&-color-green {
+		color: var(--green-color);
+	}
 }
 
 .before {

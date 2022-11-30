@@ -8,12 +8,14 @@ export const CardGrid = ({
   column,
   gap,
   align,
+  direction = 'column',
   ...restProps
 }: CardGridProps) => (
   <div
     className={classNames(
       'grid',
       column && `grid-column-${column}`,
+      direction && `grid-direction-${direction}`,
       align && `grid-align-${align}`
     )}
     style={{ gap }}

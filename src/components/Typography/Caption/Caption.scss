@@ -1,6 +1,10 @@
 .caption {
 	display: block;
 	margin: 0;
+	color: var(--color);
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 
 	&-caps {
 		text-transform: uppercase;

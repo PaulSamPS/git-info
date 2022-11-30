@@ -1,11 +1,10 @@
 .grid {
 	display: flex;
-	flex-direction: column;
 
 	&-column-2 {
 		@media (min-width: 767px) {
 			display: grid;
-			grid-template-columns: repeat(2, 50%);
+			grid-template-columns: minmax(40%, 50%) minmax(40%, 50%);
 			grid-template-rows: repeat(2, 1fr);
 			grid-auto-flow: column;
 		}
@@ -22,7 +21,19 @@
 		border: 1px solid var(--border-theme);
 	}
 
+	&-direction-column {
+		flex-direction: column;
+	}
+
+	&-direction-row {
+		flex-direction: row;
+	}
+
 	&-align-baseline {
 		align-items: baseline;
+	}
+
+	&-align-center {
+		align-items: center;
 	}
 }

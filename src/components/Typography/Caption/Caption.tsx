@@ -8,6 +8,7 @@ export const Caption = ({
   weight,
   level = '1',
   caps,
+  empty,
   Component = 'span',
   ...restProps
 }: CaptionProps) => (
@@ -17,7 +18,8 @@ export const Caption = ({
       'caption',
       `caption-l-${level}`,
       caps && 'caption-caps',
-      weight && `caption-w-${weight}`
+      weight && `caption-w-${weight}`,
+      empty && 'empty'
     )}
   >
     {children}

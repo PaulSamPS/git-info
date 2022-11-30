@@ -6,4 +6,5 @@ export interface TextProps
     HasComponent {
   weight?: '1' | '2' | '3';
   before?: React.ReactNode;
+  alternativeColor?: 'blue' | 'green';
 }
