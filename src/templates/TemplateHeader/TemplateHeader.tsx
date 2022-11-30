@@ -1,7 +1,6 @@
 import React from 'react';
 import { Logo, ThemeSwitcher, Header, CustomLink } from 'components';
 import { useTheme } from 'hooks';
-import { Link } from 'react-router-dom';
 
 export const TemplateHeader = () => {
   const { theme, toggleThemeKeyboard, toggleTheme } = useTheme();
