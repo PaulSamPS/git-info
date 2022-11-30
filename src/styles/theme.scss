@@ -3,8 +3,7 @@ body[data-theme='light'] {
 	--color-hover: var(--gray-100);
 	--bg: var(--white);
 	--bg-2: var(--gray-50);
-	--shadow-theme: var(--shadow);
-	--border-theme: transparent;
+	--border-theme: var(--border-light);
 
 	background-color: var(--bg-2);
 }
@@ -14,8 +13,7 @@ body[data-theme='dark'] {
 	--color-hover: var(--gray-100);
 	--bg: var(--gray-400);
 	--bg-2: var(--gray-500);
-	--shadow-theme: unset;
-	--border-theme: var(--border);
+	--border-theme: var(--border-dark);
 
 	background-color: var(--bg-2);
 }

@@ -95,7 +95,7 @@ export const useSearch = (): UseSearch => {
   const debounceScrollHandler = React.useCallback(
     debounce(() => {
       scrollHandler();
-    }, 500),
+    }, 300),
     [users, scrollError]
   );
 

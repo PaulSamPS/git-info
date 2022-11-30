@@ -1,5 +1,4 @@
 :root {
-	--green-color: #238636;
 	--white: #FFF;
 	--gray: #CDD9E5;
 	--gray-50: #F6F8FF;
@@ -8,7 +7,11 @@
 	--gray-300: #2B3442;
 	--gray-400: #2D333B;
 	--gray-500: #22272E;
+
+	--green-color: #238636;
+
 	--error-color: #F74646;
-	--shadow: 0 16px 30px -10px rgb(70 96 187 / 19.9%);
-	--border: rgb(240 246 252 / 10%);
+
+	--border-dark: rgb(240 246 252 / 10%);
+	--border-light: rgb(226 226 226 / 70%);
 }

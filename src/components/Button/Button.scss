@@ -1,7 +1,7 @@
 .button {
 	padding: 5px 24px 6px;
 	border-radius: 10px;
-	border: none;
+	border: 1px solid var(--border-theme);
 	background-color: var(--green-color);
 	color: var(--white);
 	font-size: 14px;
