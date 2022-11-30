@@ -1,13 +1,18 @@
 import React from 'react';
-import { Logo, ThemeSwitcher, Header } from 'components';
+import { Logo, ThemeSwitcher, Header, CustomLink } from 'components';
 import { useTheme } from 'hooks';
+import { Link } from 'react-router-dom';
 
 export const TemplateHeader = () => {
   const { theme, toggleThemeKeyboard, toggleTheme } = useTheme();
 
   return (
     <Header>
-      <Logo>GitInfo</Logo>
+      <Logo>
+        <CustomLink size={28} to='/'>
+          GitInfo
+        </CustomLink>
+      </Logo>
       <ThemeSwitcher
         theme={theme}
         toggleTheme={toggleTheme}
