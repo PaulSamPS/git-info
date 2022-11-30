@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { usersReducer } from 'redux/search';
+import { searchReducer } from 'redux/search';
 
 export const store = configureStore({
   reducer: {
-    users: usersReducer,
+    search: searchReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

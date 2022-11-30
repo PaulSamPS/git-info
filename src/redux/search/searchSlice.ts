@@ -10,6 +10,7 @@ type UserSlice = {
   totalCount: number | null;
   currentPage: number;
   text: string;
+  scrollError: string | null | unknown;
 };
 
 const initialState: UserSlice = {
@@ -19,6 +20,7 @@ const initialState: UserSlice = {
   totalCount: null,
   currentPage: 1,
   text: '',
+  scrollError: null,
 };
 
 const searchUsers = createSlice({
@@ -31,32 +33,54 @@ const searchUsers = createSlice({
     setError(state) {
       state.error = null;
     },
+    setCurrentPage(state, action: PayloadAction<number>) {
+      state.currentPage += action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(searchAction.pending, (state) => {
+      .addCase(searchAction.search.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(
-        searchAction.fulfilled,
+        searchAction.search.fulfilled,
         (state, action: PayloadAction<LocalSearch>) => {
           const { totalCount, items } = action.payload;
+
           state.users = extractSearchItems(items);
           state.totalCount = totalCount;
           state.error = null;
           state.isLoading = false;
+          state.currentPage = 1;
         }
       )
-      .addCase(searchAction.rejected, (state, action) => {
+      .addCase(searchAction.search.rejected, (state, action) => {
         state.error = action.payload;
         state.text = '';
         state.users = [];
         state.totalCount = null;
         state.isLoading = false;
+      })
+      .addCase(searchAction.searchLoading.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        searchAction.searchLoading.fulfilled,
+        (state, action: PayloadAction<LocalSearch>) => {
+          const { totalCount, items } = action.payload;
+
+          state.users = state.users.concat(extractSearchItems(items));
+          state.isLoading = false;
+          state.totalCount = totalCount;
+        }
+      )
+      .addCase(searchAction.searchLoading.rejected, (state, action) => {
+        state.scrollError = action.payload;
+        state.isLoading = false;
       });
   },
 });
 
-export const { setText, setError } = searchUsers.actions;
+export const searchSlice = searchUsers.actions;
 
-export const usersReducer = searchUsers.reducer;
+export const searchReducer = searchUsers.reducer;

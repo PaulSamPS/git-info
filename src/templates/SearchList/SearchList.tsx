@@ -1,16 +1,17 @@
 import React from 'react';
 import { CardList } from 'entity';
-import { useSelector } from 'react-redux';
-import { Card, Spinner } from 'components';
-import { searchSelector } from 'redux/selector';
+import { Card, Error, Spinner } from 'components';
 import { Text } from 'components/Typography';
 import { endOf } from 'helpers';
+import { useSelector } from 'react-redux';
+import { searchSelector } from 'redux/selector';
 
 export const SearchList = () => {
-  const { users, isLoading, totalCount, text } = useSelector(searchSelector);
+  const { users, isLoading, totalCount, text, scrollError } =
+    useSelector(searchSelector);
 
   return (
-    <main>
+    <>
       {totalCount && (
         <Text style={{ marginTop: '20px' }}>
           {`По запросу ${text} ${endOf(
@@ -26,15 +27,15 @@ export const SearchList = () => {
           )}`}
         </Text>
       )}
-      {isLoading ? (
+      {users.map((user, index) => (
+        <CardList key={index} login={user.login} avatar={user.avatar} />
+      ))}
+      {isLoading && (
         <Card>
           <Spinner position='absolute' />
         </Card>
-      ) : (
-        users.map((user) => (
-          <CardList key={user.login} login={user.login} avatar={user.avatar} />
-        ))
       )}
-    </main>
+      {scrollError && <Error isBlock>{scrollError.toString()}</Error>}
+    </>
   );
 };

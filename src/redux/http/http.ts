@@ -10,3 +10,11 @@ export const searchUsers = async (username: string) => {
 
   return data;
 };
+
+export const searchScrollLoading = async (username: string, page: number) => {
+  const { data } = await axios.get<Search>(
+    `${BASE_URL}1/search/users?q=${username}&page=${page}&per_page=30`
+  );
+
+  return data;
+};

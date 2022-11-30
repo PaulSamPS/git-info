@@ -1,2 +1,2 @@
 export * from './searchSlice';
-export * from './searchAction';
+export * as searchAction from './searchAction';
