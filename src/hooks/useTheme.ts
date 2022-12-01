@@ -1,4 +1,4 @@
-import { useEffect, KeyboardEvent, useCallback, useState } from 'react';
+import React, { KeyboardEvent } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -9,13 +9,13 @@ type UseTheme = {
 };
 
 export const useTheme = (): UseTheme => {
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = React.useState<string>('light');
 
-  const toggleTheme = useCallback((): void => {
+  const toggleTheme = React.useCallback((): void => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   }, [theme]);
 
-  const toggleThemeKeyboard = useCallback(
+  const toggleThemeKeyboard = React.useCallback(
     (e: KeyboardEvent<HTMLDivElement>): void => {
       if (e.code === 'Space') {
         setTheme(theme === 'light' ? 'dark' : 'light');
@@ -24,7 +24,7 @@ export const useTheme = (): UseTheme => {
     [theme]
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
 
