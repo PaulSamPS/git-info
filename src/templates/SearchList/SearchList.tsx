@@ -9,7 +9,7 @@ import { searchSelector } from 'redux/search';
 export const SearchList = () => {
   const { users, isLoading, totalCount, text, scrollError, error } =
     useSelector(searchSelector);
-
+  console.log(process.env.NODE_ENV === 'production');
   return (
     <>
       {totalCount !== null && totalCount <= 0 && (
