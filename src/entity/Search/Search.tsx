@@ -1,6 +1,7 @@
 import React from 'react';
-import { Input, Button, Form, Error } from 'components';
+import { Button, Error } from 'components/Blocks';
 import { useSearch } from 'hooks';
+import { FormLayout, Input } from 'components/Form';
 import { IconSearch } from './assets';
 
 export const Search = () => {
@@ -8,7 +9,7 @@ export const Search = () => {
     useSearch();
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <FormLayout onSubmit={handleSubmit}>
       <Input
         icon={<IconSearch />}
         onChange={handleOnChange}
@@ -17,13 +18,15 @@ export const Search = () => {
       />
       {error && <Error>{error}</Error>}
       <Button
+        appearance='primary'
         type='submit'
         loading={isLoading}
         width={90}
         disabled={isDisabled}
+        aria-label='Поиск'
       >
         Поиск
       </Button>
-    </Form>
+    </FormLayout>
   );
 };

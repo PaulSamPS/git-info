@@ -8,7 +8,9 @@ export const Text = ({
   weight,
   Component = 'span',
   before,
+  fontSize,
   alternativeColor,
+  center,
   ...restProps
 }: TextProps) => (
   <Component
@@ -16,8 +18,10 @@ export const Text = ({
     className={classNames(
       'text',
       weight && `text-w-${weight}`,
-      alternativeColor && `text-color-${alternativeColor}`
+      alternativeColor && `text-color-${alternativeColor}`,
+      center && 'text-center'
     )}
+    style={{ fontSize }}
   >
     {before && <Component className={before && 'before'}>{before}</Component>}
     {children}

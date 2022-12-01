@@ -4,7 +4,7 @@
 	font-size: 12px;
 	line-height: 20px;
 	font-weight: 400;
-	color: var(--color);
+	color: var(--color-theme);
 
 	&-w-1 {
 		font-weight: 600;
@@ -24,6 +24,10 @@
 
 	&-color-green {
 		color: var(--green-color);
+	}
+
+	&-center {
+		text-align: center;
 	}
 }
 

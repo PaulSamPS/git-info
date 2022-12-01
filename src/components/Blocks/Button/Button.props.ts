@@ -5,4 +5,6 @@ export interface ButtonProps
   loading?: boolean;
   type: 'submit' | 'button';
   width?: number;
+  appearance: 'primary' | 'transparent';
+  icon?: React.ReactNode;
 }

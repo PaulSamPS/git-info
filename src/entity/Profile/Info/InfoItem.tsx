@@ -1,4 +1,4 @@
-import { CardGrid } from 'components';
+import { CardGrid } from 'components/Blocks';
 import React from 'react';
 import { InfoItemType } from 'types/components';
 import { Caption } from 'components/Typography';
@@ -16,7 +16,7 @@ export const InfoItem = ({ text, icon, isLink }: InfoItemType) => {
       <Caption weight='3' level='3' empty={!text}>
         {icon}
       </Caption>
-      <Caption weight='3' level='3' empty={!text}>
+      <Caption weight='3' level='3' empty={!text} tabIndex={0}>
         {isLink && text ? (
           <a href={currentHref} target='_blank' rel='noreferrer'>
             {currentText}

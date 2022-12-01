@@ -4,7 +4,7 @@ import { classNames } from 'lib';
 import { BioType } from 'types/components';
 
 export const Bio = ({ bio }: BioType) => (
-  <Paragraph weight='1' className={classNames(!bio && 'empty')}>
+  <Paragraph weight='1' className={classNames(!bio && 'empty')} tabIndex={0}>
     {bio || 'У этого профиля нет описания'}
   </Paragraph>
 );

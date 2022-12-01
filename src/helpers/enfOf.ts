@@ -1,10 +1,10 @@
 export const endOf = (
-  review: number | null,
+  value: number | null,
   first: string,
   second: string,
   third: string
 ) => {
-  let number = Math.abs(review || 0);
+  let number = Math.abs(value || 0);
 
   number %= 100;
 

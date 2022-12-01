@@ -1,19 +1,24 @@
 import React from 'react';
 import { CardList } from 'entity';
-import { Card, Error, Spinner } from 'components';
+import { Card, Error, Spinner } from 'components/Blocks';
 import { Text } from 'components/Typography';
 import { endOf } from 'helpers';
 import { useSelector } from 'react-redux';
 import { searchSelector } from 'redux/search';
 
 export const SearchList = () => {
-  const { users, isLoading, totalCount, text, scrollError } =
+  const { users, isLoading, totalCount, text, scrollError, error } =
     useSelector(searchSelector);
 
   return (
     <>
-      {totalCount && (
-        <Text style={{ marginTop: '20px' }}>
+      {totalCount !== null && totalCount <= 0 && (
+        <Text tabIndex={0} center>
+          Ничего не найденно...
+        </Text>
+      )}
+      {totalCount !== null && totalCount > 0 && (
+        <Text tabIndex={0} center>
           {`По запросу ${text} ${endOf(
             totalCount,
             'найден',
@@ -36,6 +41,7 @@ export const SearchList = () => {
         </Card>
       )}
       {scrollError && <Error isBlock>{scrollError.toString()}</Error>}
+      {error && <Error isBlock>{error.toString()}</Error>}
     </>
   );
 };

@@ -1,32 +1,50 @@
-import { CardGrid, CustomLink } from 'components';
-import { Caption } from 'components/Typography';
+import { CardGrid } from 'components/Blocks';
+import { Caption, Text } from 'components/Typography';
 import { StatType } from 'types/components';
 
-export const Stat = ({ repos, following, followers }: StatType) => (
+export const Stat = ({ repos, following, followers, username }: StatType) => (
   <CardGrid column='3'>
     <CardGrid gap={8}>
-      <Caption weight='2' level='3'>
+      <Caption weight='2' level='3' tabIndex={0}>
         Репозитории
       </Caption>
-      <CustomLink to='/' size={20}>
-        {repos}
-      </CustomLink>
+      <Text fontSize={20}>
+        <a
+          href={`https://github.com/${username}?tab=repositories`}
+          target='_blank'
+          rel='noreferrer'
+        >
+          {repos}
+        </a>
+      </Text>
     </CardGrid>
     <CardGrid gap={8}>
-      <Caption weight='2' level='3'>
+      <Caption weight='2' level='3' tabIndex={0}>
         Подписан
       </Caption>
-      <CustomLink to='/' size={20}>
-        {following}
-      </CustomLink>
+      <Text fontSize={20}>
+        <a
+          href={`https://github.com/${username}?tab=following`}
+          target='_blank'
+          rel='noreferrer'
+        >
+          {following}
+        </a>
+      </Text>
     </CardGrid>
     <CardGrid gap={8}>
-      <Caption weight='2' level='3'>
+      <Caption weight='2' level='3' tabIndex={0}>
         Подписчики
       </Caption>
-      <CustomLink to='/' size={20}>
-        {followers}
-      </CustomLink>
+      <Text fontSize={20}>
+        <a
+          href={`https://github.com/${username}?tab=followers`}
+          target='_blank'
+          rel='noreferrer'
+        >
+          {followers}
+        </a>
+      </Text>
     </CardGrid>
   </CardGrid>
 );

@@ -7,4 +7,6 @@ export interface TextProps
   weight?: '1' | '2' | '3';
   before?: React.ReactNode;
   alternativeColor?: 'blue' | 'green';
+  fontSize?: number;
+  center?: boolean;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { InfoType } from 'types/components';
-import { CardGrid } from 'components';
+import { CardGrid } from 'components/Blocks';
 import { IconCompany, IconLocation, IconTwitter, IconWebsite } from './assets';
 import { InfoItem } from './InfoItem';
 

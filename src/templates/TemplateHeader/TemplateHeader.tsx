@@ -1,6 +1,8 @@
 import React from 'react';
-import { Logo, ThemeSwitcher, Header, CustomLink } from 'components';
+import { Logo, Header } from 'components/Blocks';
 import { useTheme } from 'hooks';
+import { CustomLink } from 'components';
+import { ThemeSwitcher } from 'entity';
 
 export const TemplateHeader = () => {
   const { theme, toggleThemeKeyboard, toggleTheme } = useTheme();

@@ -4,12 +4,12 @@
 
 a {
 	color: inherit;
-	font-size: 13px;
+	font-size: inherit;
 	text-decoration: none;
 	transition: color ease 0.2s;
 
 	&:hover {
 		text-decoration: underline;
-		color: var(--color-hover);
+		color: var(--color-hover-theme);
 	}
 }

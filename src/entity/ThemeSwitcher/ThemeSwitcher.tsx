@@ -13,6 +13,7 @@ export const ThemeSwitcher = ({
     tabIndex={0}
     onKeyDown={(e) => toggleThemeKeyboard(e)}
     className='switcher'
+    aria-label={`Смена темы, активная  тема ${theme}`}
     onClick={toggleTheme}
     {...restProps}
   >

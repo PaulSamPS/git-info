@@ -11,14 +11,14 @@
 		flex-grow: 5;
 		max-width: calc(100% - 20px);
 		border: none;
-		color: var(--color);
+		color: var(--color-theme);
 		font-size: 14px;
 		line-height: 1.5;
 		cursor: pointer;
-		background-color: var(--bg);
+		background-color: var(--bg-theme);
 
 		&::placeholder {
-			color: var(--color);
+			color: var(--color-theme);
 			font-size: 12px;
 			font-family: 'Space Mono', monospace;
 		}

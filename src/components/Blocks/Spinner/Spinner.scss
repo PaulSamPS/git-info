@@ -4,7 +4,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--color);
+	color: var(--color-theme);
 
 	&-self {
 		animation: lds-dual-ring 1s linear infinite;

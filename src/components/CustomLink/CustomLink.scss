@@ -1,11 +1,11 @@
 .link {
-	color: var(--color);
+	color: var(--color-theme);
 	font-size: 13px;
 	text-decoration: none;
 	transition: color ease 0.2s;
 
 	&:hover {
 		text-decoration: underline;
-		color: var(--color-hover);
+		color: var(--color-hover-theme);
 	}
 }

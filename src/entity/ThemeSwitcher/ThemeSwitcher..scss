@@ -6,7 +6,7 @@
 	user-select: none;
 
 	span {
-		color: var(--color);
+		color: var(--color-theme);
 		font-size: 10px;
 		text-transform: uppercase;
 		letter-spacing: 2.5px;
@@ -15,7 +15,7 @@
 	}
 
 	svg {
-		fill: var(--color);
+		fill: var(--color-theme);
 		width: 14px;
 		height: 14px;
 		transition: all ease 0.2s;
@@ -23,11 +23,11 @@
 
 	&:hover {
 		span {
-			color: var(--color-hover);
+			color: var(--color-hover-theme);
 		}
 
 		svg {
-			fill: var(--color-hover);
+			fill: var(--color-hover-theme);
 		}
 	}
 }
