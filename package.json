@@ -21,7 +21,7 @@
   "scripts": {
     "prepare": "husky install",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set GENERATE_SOURCEMAP=false && react-scripts build",
     "lint": "eslint --fix --ext .ts,.tsx .",
     "stylelint": "stylelint \"**/*.scss\" --fix"
   },
