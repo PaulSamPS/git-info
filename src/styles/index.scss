@@ -3,7 +3,7 @@
 @import './theme';
 @import './global';
 
-body {
+body, html {
 	font-family: 'Space Mono', monospace;
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
