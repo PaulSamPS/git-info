@@ -1,0 +1,11 @@
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 10px;
+
+  h3 {
+    text-align: center;
+  }
+}

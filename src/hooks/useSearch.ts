@@ -1,9 +1,14 @@
 import React, { ChangeEvent, FormEvent } from 'react';
-import { createSearchParams, useNavigate } from 'react-router-dom';
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
 import { searchSlice, searchAction, searchSelector } from 'redux/search';
 import { useSelector } from 'react-redux';
 import debounce from 'lodash.debounce';
+import { LocalSearchUsersItem } from 'types';
 
 type UseSearch = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -11,6 +16,10 @@ type UseSearch = {
   isDisabled: boolean;
   isLoading: boolean;
   error: string;
+  users: LocalSearchUsersItem[];
+  totalCount: number | null;
+  text: string;
+  scrollError: unknown;
 };
 
 export const useSearch = (): UseSearch => {
@@ -30,6 +39,8 @@ export const useSearch = (): UseSearch => {
   const [search, setSearch] = React.useState<string>('');
   const [isDisabled, setIsDisabled] = React.useState<boolean>(true);
   const [isFetching, setIsFetching] = React.useState<boolean>(false);
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get('user');
 
   React.useEffect(() => {
     if (search.length > 0 && error) {
@@ -70,6 +81,15 @@ export const useSearch = (): UseSearch => {
     },
     []
   );
+
+  // SearchQuery
+
+  React.useEffect(() => {
+    if (query) {
+      dispatch(searchAction.search(query));
+      dispatch(searchSlice.setText(query));
+    }
+  }, [query]);
 
   // ScrollLoading
 
@@ -115,5 +135,9 @@ export const useSearch = (): UseSearch => {
     isDisabled,
     isLoading,
     error,
+    text,
+    totalCount,
+    users,
+    scrollError,
   };
 };
