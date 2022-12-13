@@ -1,12 +1,11 @@
 import React from 'react';
-import { Button, Error } from 'components/Blocks';
+import { Button } from 'components/Blocks';
 import { useSearch } from 'hooks';
 import { FormLayout, Input } from 'components/Form';
 import { IconSearch } from './assets';
 
 export const Search = () => {
-  const { handleSubmit, handleOnChange, isDisabled, isLoading, error } =
-    useSearch();
+  const { handleSubmit, handleOnChange, isDisabled, isLoading } = useSearch();
 
   return (
     <FormLayout onSubmit={handleSubmit}>
@@ -17,7 +16,6 @@ export const Search = () => {
         autoFocus
         id='search'
       />
-      {error && <Error>{error}</Error>}
       <Button
         appearance='primary'
         type='submit'

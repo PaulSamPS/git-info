@@ -39,8 +39,8 @@ export const SearchList = () => {
           <Spinner position='absolute' />
         </Card>
       )}
-      {scrollError && <Error isBlock>{scrollError.toString()}</Error>}
-      {error && <Error isBlock>{error.toString()}</Error>}
+      {scrollError && !error && <Error isBlock>{scrollError.toString()}</Error>}
+      {error && !scrollError && <Error isBlock>{error}</Error>}
     </>
   );
 };
