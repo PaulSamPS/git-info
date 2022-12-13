@@ -13,7 +13,7 @@ export const InfoItem = ({ text, icon, isLink }: InfoItemType) => {
 
   return (
     <CardGrid direction='row' align='center' gap={10}>
-      <Caption weight='3' level='3' empty={!text}>
+      <Caption weight='3' level='3' empty={!text} style={{ lineHeight: 0 }}>
         {icon}
       </Caption>
       <Caption weight='3' level='3' empty={!text} tabIndex={0}>

@@ -1,13 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>home_24</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="home_24">
-            <rect id="icon-bounds" x="0" y="0" width="24" height="24"></rect>
-            <path d="M10,14 L14,14 L14,20 L18,20 C18.5522847,20 19,19.5522847 19,19 L19,12 L20.6970209,12 C20.9731633,12 21.1970209,11.7761424 21.1970209,11.5 C21.1970209,11.3582567 21.1368602,11.2231742 21.0315033,11.1283529 L12.3344824,3.30103413 C12.1443299,3.12989689 11.8556701,3.12989689 11.6655176,3.30103413 L2.96849675,11.1283529 C2.76324174,11.3130824 2.74660253,11.6292274 2.93133204,11.8344824 C3.02615328,11.9398393 3.16123586,12 3.30297911,12 L5,12 L5,19 C5,19.5522847 5.44771525,20 6,20 L10,20 L10,14 Z" id="Mask" fill="currentColor"></path>
-        </g>
-    </g>
+<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" fill="currentColor">
+    <path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
 </svg>
