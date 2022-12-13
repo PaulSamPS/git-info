@@ -9,10 +9,12 @@ type UseTheme = {
 };
 
 export const useTheme = (): UseTheme => {
-  const [theme, setTheme] = React.useState<string>('light');
+  const currentTheme = localStorage.getItem('theme')
+  const [theme, setTheme] = React.useState<string>(currentTheme || 'light');
 
   const toggleTheme = React.useCallback((): void => {
     setTheme(theme === 'light' ? 'dark' : 'light');
+    localStorage.setItem('theme', theme === 'light' ? 'dark' : 'light')
   }, [theme]);
 
   const toggleThemeKeyboard = React.useCallback(
