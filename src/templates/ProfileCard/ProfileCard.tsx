@@ -15,7 +15,7 @@ export const ProfileCard = () => {
         type='button'
         appearance='transparent'
         icon={<IconArrowLeft />}
-        onClick={() => navigate('/')}
+        onClick={() => navigate(-1)}
       >
         к результатам поиска
       </Button>

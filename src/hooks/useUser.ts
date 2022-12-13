@@ -24,7 +24,7 @@ export const useUser = (): UseUser => {
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-    if (typeof username === 'string') {
+    if (username) {
       dispatch(profileAction(username));
     }
   }, []);
