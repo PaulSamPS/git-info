@@ -15,6 +15,7 @@ export const Search = () => {
         onChange={handleOnChange}
         placeholder='Поиск по имени пользователя'
         autoFocus
+        id='search'
       />
       {error && <Error>{error}</Error>}
       <Button

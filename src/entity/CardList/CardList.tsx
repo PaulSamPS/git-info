@@ -2,7 +2,9 @@ import React from 'react';
 import { Card, Avatar, CardGrid } from 'components/Blocks';
 import { Title } from 'components/Typography';
 import { CustomLink } from 'components';
-import { CardListProps } from './CardList.props';
+import { LocalGithubUser } from 'types';
+
+interface CardListProps extends Pick<LocalGithubUser, 'avatar' | 'login'> {}
 
 export const CardList = ({ avatar, login }: CardListProps) => (
   <Card>

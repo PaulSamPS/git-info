@@ -1,9 +1,11 @@
 import React from 'react';
-import { LogoProps } from './Logo.props';
-import './Logo.scss';
+import cx from 'clsx';
+import styles from './Logo.module.scss';
 
-export const Logo = ({ children, ...restProps }: LogoProps) => (
-  <div className='logo' {...restProps}>
+interface LogoProps extends React.AllHTMLAttributes<HTMLDivElement> {}
+
+export const Logo = ({ children, className, ...restProps }: LogoProps) => (
+  <div className={cx(className, styles.logo)} {...restProps}>
     {children}
   </div>
 );

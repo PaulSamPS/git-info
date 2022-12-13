@@ -1,7 +1,11 @@
 import React from 'react';
-import { HeaderProps } from './Header.props';
-import './Header.scss';
+import cx from 'clsx';
+import styles from './Header.module.scss';
 
-export const Header = ({ children }: HeaderProps) => (
-  <header className='header'>{children}</header>
+interface HeaderProps extends React.AllHTMLAttributes<HTMLElement> {}
+
+export const Header = ({ children, className, ...restProps }: HeaderProps) => (
+  <header className={cx(className, styles.header)} {...restProps}>
+    {children}
+  </header>
 );

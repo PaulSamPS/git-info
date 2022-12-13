@@ -1,10 +1,15 @@
 import React from 'react';
-import { classNames } from 'lib';
-import { ErrorProps } from './Error.props';
-import './Error.scss';
+import cx from 'clsx';
+import styles from './Error.module.scss';
 
-export const Error = ({ children, isBlock }: ErrorProps) => (
-  <div className={classNames('error', isBlock && 'error-block')}>
+interface ErrorProps extends React.AllHTMLAttributes<HTMLDivElement> {
+  isBlock?: boolean;
+}
+
+export const Error = ({ children, className, isBlock }: ErrorProps) => (
+  <div
+    className={cx(className, styles.error, isBlock && styles['error-block'])}
+  >
     {children}
   </div>
 );

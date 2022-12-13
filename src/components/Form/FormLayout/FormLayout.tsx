@@ -1,9 +1,15 @@
 import React from 'react';
-import { FormLayoutProps } from './FormLayout.props';
-import './FormLayout.scss';
+import cx from 'clsx';
+import styles from './FormLayout.module.scss';
 
-export const FormLayout = ({ children, ...restProps }: FormLayoutProps) => (
-  <form className='form' {...restProps}>
+interface FormLayoutProps extends React.FormHTMLAttributes<HTMLFormElement> {}
+
+export const FormLayout = ({
+  children,
+  className,
+  ...restProps
+}: FormLayoutProps) => (
+  <form className={cx(className, styles.form)} {...restProps}>
     {children}
   </form>
 );

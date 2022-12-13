@@ -4,11 +4,23 @@ import { Card, Error, Spinner } from 'components/Blocks';
 import { Text } from 'components/Typography';
 import { endOf } from 'helpers';
 import { useSelector } from 'react-redux';
-import { searchSelector } from 'redux/search';
+import { searchAction, searchSelector, searchSlice } from 'redux/search';
+import { useSearchParams } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks';
 
 export const SearchList = () => {
   const { users, isLoading, totalCount, text, scrollError, error } =
     useSelector(searchSelector);
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get('user');
+  const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+    if (query) {
+      dispatch(searchAction.search(query));
+      dispatch(searchSlice.setText(query));
+    }
+  }, [query]);
 
   return (
     <>

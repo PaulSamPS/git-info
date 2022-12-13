@@ -1,9 +1,11 @@
 import React from 'react';
-import { CardProps } from './Card.props';
-import './Card.scss';
+import cx from 'clsx';
+import styles from './Card.module.scss';
 
-export const Card = ({ children, ...restProps }: CardProps) => (
-  <div className='card' {...restProps}>
+interface CardProps extends React.AllHTMLAttributes<HTMLDivElement> {}
+
+export const Card = ({ children, className, ...restProps }: CardProps) => (
+  <div className={cx(className, styles.card)} {...restProps}>
     {children}
   </div>
 );

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
 import { searchSlice, searchAction, searchSelector } from 'redux/search';
 import { useSelector } from 'react-redux';
@@ -50,11 +50,14 @@ export const useSearch = (): UseSearch => {
       e.preventDefault();
 
       if (search.trim()) {
-        dispatch(searchAction.search(search));
-        dispatch(searchSlice.setText(search));
+        navigate({
+          pathname: '/search/',
+          search: createSearchParams({
+            user: search,
+          }).toString(),
+        });
         e.currentTarget.reset();
         setIsDisabled(true);
-        navigate('/');
       }
     },
     [search]

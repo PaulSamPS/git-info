@@ -1,8 +1,15 @@
 import React from 'react';
 import { Spinner } from 'components/Blocks';
-import { classNames } from 'lib';
-import { ButtonProps } from './Button.props';
-import './Button.scss';
+import cx from 'clsx';
+import styles from './Button.module.scss';
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  loading?: boolean;
+  type: 'submit' | 'button';
+  width?: number;
+  appearance: 'primary' | 'transparent';
+  icon?: React.ReactNode;
+}
 
 export const Button = ({
   loading,
@@ -18,11 +25,12 @@ export const Button = ({
     /* eslint-disable-next-line react/button-has-type */
     type={type}
     style={{ width }}
-    className={classNames(
-      'button',
-      `button-${appearance}`,
-      loading && 'button-loading',
-      icon && 'button-icon'
+    className={cx(
+      className,
+      styles.button,
+      styles[`button-${appearance}`],
+      loading && styles['button-loading'],
+      icon && styles['button-icon']
     )}
     {...restProps}
   >

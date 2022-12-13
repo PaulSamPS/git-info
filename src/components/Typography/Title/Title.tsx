@@ -1,13 +1,22 @@
 import * as React from 'react';
-import './Title.scss';
-import { classNames } from 'lib';
-import { TitleProps } from './Title.props';
+import { HasComponent, TypeAttributes } from 'types';
+import cx from 'clsx';
+import styles from './Title.module.scss';
+
+interface TitleProps
+  extends React.AllHTMLAttributes<HTMLElement>,
+    HasComponent {
+  weight?: TypeAttributes.Weight;
+  level?: TypeAttributes.Level;
+  before?: React.ReactNode;
+}
 
 export const Title = ({
   children,
   weight,
   level = '1',
   Component,
+  className,
   before,
   ...restProps
 }: TitleProps) => {
@@ -18,11 +27,12 @@ export const Title = ({
   return (
     <Component
       {...restProps}
-      className={classNames(
-        'title',
-        `title-l-${level}`,
-        weight && `title-w-${weight}`,
-        before && 'title-color'
+      className={cx(
+        className,
+        styles.title,
+        styles[`title-l-${level}`],
+        weight && styles[`title-w-${weight}`],
+        before && styles['title-color']
       )}
     >
       {before && before}

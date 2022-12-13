@@ -1,9 +1,15 @@
 import React from 'react';
-import { ContainerProps } from './Container.props';
-import './Container.scss';
+import cx from 'clsx';
+import styles from './Container.module.scss';
 
-export const Container = ({ children, ...restProps }: ContainerProps) => (
-  <div className='container' {...restProps}>
+interface ContainerProps extends React.AllHTMLAttributes<HTMLDivElement> {}
+
+export const Container = ({
+  children,
+  className,
+  ...restProps
+}: ContainerProps) => (
+  <div className={cx(className, styles.container)} {...restProps}>
     {children}
   </div>
 );
