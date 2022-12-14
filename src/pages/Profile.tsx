@@ -1,6 +1,6 @@
 import React from 'react';
-import { ProfileCard } from 'templates';
+import { ProfileTemplate } from 'templates';
 
-const Profile = () => <ProfileCard />;
+const Profile = () => <ProfileTemplate />;
 
 export default Profile;

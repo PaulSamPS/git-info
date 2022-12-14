@@ -1,6 +1,6 @@
 import React from 'react';
-import { SearchList } from 'templates';
+import { SearchResult } from 'templates';
 
-const Search = () => <SearchList />;
+const Search = () => <SearchResult />;
 
 export default Search;

@@ -7,3 +7,5 @@ export * from './Container/Container';
 export * from './Button/Button';
 export * from './CardGrid/CardGrid';
 export * from './Logo/Logo';
+export * from './NotFound/NotFound';
+export * from './SearchResultCard/SearchResultCard';

@@ -4,6 +4,7 @@ import { LocalGithubUser } from 'types';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch } from './useAppDispatch';
+import { useLocalDate } from './useLocalDate';
 
 type UseUser = {
   user: LocalGithubUser;
@@ -11,29 +12,17 @@ type UseUser = {
   isLoading: boolean;
 };
 
-const localDate = new Intl.DateTimeFormat('ru-GB', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric',
-});
-
 export const useUser = (): UseUser => {
   const { username } = useParams();
-  const { user, isLoading } = useSelector(profileSelector);
-  const [joinedDate, setJoinedDate] = React.useState<string>('');
   const dispatch = useAppDispatch();
+  const { user, isLoading } = useSelector(profileSelector);
+  const joinedDate = useLocalDate(user.created);
 
   React.useEffect(() => {
     if (username) {
       dispatch(profileAction(username));
     }
   }, []);
-
-  React.useEffect(() => {
-    if (user.created) {
-      setJoinedDate(localDate.format(new Date(user.created)));
-    }
-  }, [user.created]);
 
   return { user, joinedDate, isLoading };
 };

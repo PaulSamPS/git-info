@@ -4,9 +4,11 @@ import { Title } from 'components/Typography';
 import { CustomLink } from 'components';
 import { LocalGithubUser } from 'types';
 
-interface CardListProps extends Pick<LocalGithubUser, 'avatar' | 'login'> {}
+interface CardListProps extends Pick<LocalGithubUser, 'avatar' | 'login'> {
+  desc: string;
+}
 
-export const CardList = ({ avatar, login }: CardListProps) => (
+export const SearchResultCard = ({ avatar, login, desc }: CardListProps) => (
   <Card>
     <Avatar avatar={avatar} login={login} />
     <CardGrid gap={20}>
@@ -22,7 +24,7 @@ export const CardList = ({ avatar, login }: CardListProps) => (
         to={`/profile/${login}`}
         aria-label={`Посмотреть профиль пользователя ${login}`}
       >
-        Посмотреть профиль
+        {desc}
       </CustomLink>
     </CardGrid>
   </Card>
