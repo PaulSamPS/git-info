@@ -1,10 +1,8 @@
 import React from 'react';
-import { profileAction, profileSelector } from 'redux/profile';
 import { LocalGithubUser } from 'types';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useAppDispatch } from './useAppDispatch';
-import { useLocalDate } from './useLocalDate';
+import { useLocalDate, useStoreActions } from 'hooks';
+import { getStateUser } from 'helpers';
 
 type UseUser = {
   user: LocalGithubUser;
@@ -14,15 +12,15 @@ type UseUser = {
 
 export const useUser = (): UseUser => {
   const { username } = useParams();
-  const dispatch = useAppDispatch();
-  const { user, isLoading } = useSelector(profileSelector);
-  const joinedDate = useLocalDate(user.created);
+  const getData = useStoreActions();
+  const state = getStateUser();
+  const joinedDate = useLocalDate(state.user.created);
 
   React.useEffect(() => {
     if (username) {
-      dispatch(profileAction(username));
+      getData.getProfileData(username);
     }
   }, []);
 
-  return { user, joinedDate, isLoading };
+  return { user: state.user, joinedDate, isLoading: state.isLoading };
 };

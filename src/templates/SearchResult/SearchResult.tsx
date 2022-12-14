@@ -1,17 +1,19 @@
 import React from 'react';
 import { Error, NotFound, SearchResultCard, Spinner } from 'components/Blocks';
-import { useSearch } from 'hooks';
+import { useScrollLoading } from 'hooks';
 import { SearchInfo } from 'entity/SearchResult';
+import { Intro } from 'entity';
+import { getState } from 'helpers';
 
 export const SearchResult = () => {
-  const { users, isLoading, totalCount, text, scrollError, error } =
-    useSearch();
+  const state = getState();
+  useScrollLoading();
 
   return (
     <>
-      <NotFound totalCount={totalCount}>Ничего не найденно...</NotFound>
-      <SearchInfo totalCount={totalCount} text={text} />
-      {users.map((user, index) => (
+      <NotFound totalCount={state.totalCount}>Ничего не найденно...</NotFound>
+      <SearchInfo totalCount={state.totalCount} text={state.text} />
+      {state.users.map((user, index) => (
         <SearchResultCard
           desc='посмотреть профиль'
           key={index}
@@ -19,9 +21,10 @@ export const SearchResult = () => {
           avatar={user.avatar}
         />
       ))}
-      {isLoading && <Spinner position='absolute' />}
-      {scrollError && !error && <Error isBlock>{scrollError.toString()}</Error>}
-      {error && !scrollError && <Error isBlock>{error}</Error>}
+      {state.users.length <= 0 && !state.isLoading && <Intro />}
+      {state.isLoading && <Spinner position='absolute' />}
+      <Error err={state.scrollError && !state.error} isBlock />
+      <Error err={state.error && !state.scrollError} isBlock />
     </>
   );
 };

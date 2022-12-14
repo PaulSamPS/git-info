@@ -1,6 +1,6 @@
 import React from 'react';
-import { Intro } from 'entity';
+import { SearchResult } from 'templates';
 
-const Main = () => <Intro />;
+const Main = () => <SearchResult />;
 
 export default Main;

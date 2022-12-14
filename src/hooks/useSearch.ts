@@ -1,50 +1,26 @@
 import React, { ChangeEvent, FormEvent } from 'react';
-import {
-  createSearchParams,
-  useNavigate,
-  useSearchParams,
-} from 'react-router-dom';
-import { useAppDispatch } from 'hooks';
-import { searchSlice, searchAction, searchSelector } from 'redux/search';
-import { useSelector } from 'react-redux';
-import debounce from 'lodash.debounce';
-import { LocalSearchUsersItem } from 'types';
+import { useNavigate } from 'react-router-dom';
+import { getState } from 'helpers';
+import { useStoreActions } from 'hooks';
 
 type UseSearch = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   handleOnChange: (e: ChangeEvent<HTMLInputElement>) => void;
   isDisabled: boolean;
   isLoading: boolean;
-  error: string;
-  users: LocalSearchUsersItem[];
-  totalCount: number | null;
-  text: string;
-  scrollError: unknown;
 };
 
 export const useSearch = (): UseSearch => {
-  const {
-    isLoading,
-    error,
-    text,
-    currentPage,
-    totalCount,
-    users,
-    scrollError,
-  } = useSelector(searchSelector);
-
-  const dispatch = useAppDispatch();
+  const state = getState();
+  const store = useStoreActions();
   const navigate = useNavigate();
 
   const [search, setSearch] = React.useState<string>('');
   const [isDisabled, setIsDisabled] = React.useState<boolean>(true);
-  const [isFetching, setIsFetching] = React.useState<boolean>(false);
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get('user');
 
   React.useEffect(() => {
-    if (search.length > 0 && error) {
-      dispatch(searchSlice.setError());
+    if (search.length > 0 && state.error) {
+      store.setError();
     }
   }, [search]);
 
@@ -61,12 +37,8 @@ export const useSearch = (): UseSearch => {
       e.preventDefault();
 
       if (search.trim()) {
-        navigate({
-          pathname: '/search/',
-          search: createSearchParams({
-            user: search,
-          }).toString(),
-        });
+        navigate('/search');
+        store.getUsersData(search);
         e.currentTarget.reset();
         setIsDisabled(true);
       }
@@ -82,62 +54,10 @@ export const useSearch = (): UseSearch => {
     []
   );
 
-  // SearchQuery
-
-  React.useEffect(() => {
-    if (query) {
-      dispatch(searchAction.search(query));
-      dispatch(searchSlice.setText(query));
-    }
-  }, [query]);
-
-  // ScrollLoading
-
-  React.useEffect(() => {
-    if (isFetching) {
-      dispatch(
-        searchAction.searchLoading({ username: text, page: currentPage })
-      );
-      setIsFetching(false);
-    }
-  }, [isFetching]);
-
-  const scrollHandler = () => {
-    const { scrollHeight, scrollTop } = document.documentElement;
-    if (
-      scrollHeight - (scrollTop + window.innerHeight) < 100 &&
-      users.length < totalCount! &&
-      !scrollError
-    ) {
-      dispatch(searchSlice.setCurrentPage(1));
-      setIsFetching(true);
-    }
-  };
-
-  const debounceScrollHandler = React.useCallback(
-    debounce(() => {
-      scrollHandler();
-    }, 300),
-    [users, scrollError]
-  );
-
-  React.useEffect(() => {
-    document.addEventListener('scroll', debounceScrollHandler);
-
-    return () => {
-      document.removeEventListener('scroll', debounceScrollHandler);
-    };
-  }, [users, scrollError]);
-
-  return <UseSearch>{
+  return {
     handleSubmit,
     handleOnChange,
     isDisabled,
-    isLoading,
-    error,
-    text,
-    totalCount,
-    users,
-    scrollError,
+    isLoading: state.isLoading,
   };
 };

@@ -4,12 +4,22 @@ import styles from './Error.module.scss';
 
 interface ErrorProps extends React.AllHTMLAttributes<HTMLDivElement> {
   isBlock?: boolean;
+  err: string | boolean | unknown;
 }
 
-export const Error = ({ children, className, isBlock }: ErrorProps) => (
-  <div
-    className={cx(className, styles.error, isBlock && styles['error-block'])}
-  >
-    {children}
-  </div>
-);
+export const Error = ({ className, isBlock, err }: ErrorProps) => {
+  if (err) {
+    return (
+      <div
+        className={cx(
+          className,
+          styles.error,
+          isBlock && styles['error-block']
+        )}
+      >
+        {err.toString()}
+      </div>
+    );
+  }
+  return null;
+};
