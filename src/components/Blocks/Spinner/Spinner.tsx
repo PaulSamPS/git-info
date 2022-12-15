@@ -19,8 +19,8 @@ export const Spinner = React.memo(
     <span
       role='status'
       aria-label={ariaLabel}
-      className={cx(className, styles.spinner)}
-      style={{ position, color }}
+      className={cx(className, styles.spinner, styles[`spinner-${position}`])}
+      style={{ color }}
       {...restProps}
     >
       <IconSpinner aria-hidden='true' className={styles['spinner-self']} />
