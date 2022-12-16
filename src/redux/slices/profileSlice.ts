@@ -1,6 +1,6 @@
 import { LocalGithubUser } from 'types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { profileAction } from 'redux/profile';
+import { Profile } from 'packages/tasks';
 
 type UserSlice = {
   user: LocalGithubUser;
@@ -20,18 +20,18 @@ const profileUser = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(profileAction.pending, (state) => {
+      .addCase(Profile.getProfile.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(
-        profileAction.fulfilled,
+        Profile.getProfile.fulfilled,
         (state, action: PayloadAction<LocalGithubUser>) => {
           state.user = action.payload;
           state.error = null;
           state.isLoading = false;
         }
       )
-      .addCase(profileAction.rejected, (state, action) => {
+      .addCase(Profile.getProfile.rejected, (state, action) => {
         state.error = action.payload;
         state.user = {} as LocalGithubUser;
         state.isLoading = false;

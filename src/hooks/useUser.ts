@@ -1,8 +1,9 @@
 import React from 'react';
 import { LocalGithubUser } from 'types';
 import { useParams } from 'react-router-dom';
-import { useLocalDate, useStoreActions } from 'hooks';
-import { getStateUser } from 'helpers';
+import { useLocalDate } from 'hooks';
+import { State } from 'packages/tasks';
+import { useTasks } from 'packages';
 
 type UseUser = {
   user: LocalGithubUser;
@@ -12,8 +13,8 @@ type UseUser = {
 
 export const useUser = (): UseUser => {
   const { username } = useParams();
-  const getData = useStoreActions();
-  const state = getStateUser();
+  const getData = useTasks();
+  const state = State.getStateProfile();
   const joinedDate = useLocalDate(state.user.created);
 
   React.useEffect(() => {

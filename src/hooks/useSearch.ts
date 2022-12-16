@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getState } from 'helpers';
-import { useStoreActions } from 'hooks';
+import { State } from 'packages/tasks';
+import { useTasks } from 'packages';
 
 type UseSearch = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -11,8 +11,8 @@ type UseSearch = {
 };
 
 export const useSearch = (): UseSearch => {
-  const state = getState();
-  const store = useStoreActions();
+  const state = State.getStateSearch();
+  const store = useTasks();
   const navigate = useNavigate();
 
   const [search, setSearch] = React.useState<string>('');
@@ -37,7 +37,7 @@ export const useSearch = (): UseSearch => {
       e.preventDefault();
 
       if (search.trim()) {
-        navigate('/search');
+        navigate('/getSearch');
         store.getUsersData(search);
         e.currentTarget.reset();
         setIsDisabled(true);

@@ -1,11 +1,11 @@
 import React from 'react';
 import debounce from 'lodash.debounce';
-import { useStoreActions } from 'hooks';
-import { getState } from 'helpers';
+import { useTasks } from 'packages';
+import { State } from 'packages/tasks';
 
 export const useScrollLoading = () => {
-  const store = useStoreActions();
-  const state = getState();
+  const store = useTasks();
+  const state = State.getStateSearch();
 
   const [isFetching, setIsFetching] = React.useState<boolean>(false);
 

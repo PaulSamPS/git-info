@@ -3,10 +3,10 @@ import { Error, NotFound, SearchResultCard, Spinner } from 'components/Blocks';
 import { useScrollLoading } from 'hooks';
 import { SearchInfo } from 'entity/SearchResult';
 import { Intro } from 'entity';
-import { getState } from 'helpers';
+import { State } from 'packages/tasks';
 
 export const SearchResult = () => {
-  const state = getState();
+  const state = State.getStateSearch();
   useScrollLoading();
 
   return (

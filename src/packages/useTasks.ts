@@ -1,18 +1,26 @@
-import { searchAction, searchSlice } from 'redux/search';
+import { searchSlice } from 'redux/slices';
 import { useAppDispatch } from 'hooks';
 import React from 'react';
-import { profileAction } from 'redux/profile';
+import { Search, Profile } from 'packages/tasks';
 
-export const useStoreActions = () => {
+interface UseTasks {
+  getUsersData: (value: string) => void;
+  setError: () => void;
+  getUserDataScroll: (text: string, currentPage: number) => void;
+  setPage: () => void;
+  getProfileData: (username: string) => void;
+}
+
+export const useTasks = (): UseTasks => {
   const dispatch = useAppDispatch();
 
   const getUsersData = React.useCallback((query: string) => {
-    dispatch(searchAction.search(query));
+    dispatch(Search.getSearch(query));
     dispatch(searchSlice.setText(query));
   }, []);
 
   const getProfileData = React.useCallback((username: string) => {
-    dispatch(profileAction(username));
+    dispatch(Profile.getProfile(username));
   }, []);
 
   const setError = React.useCallback(() => {
@@ -21,9 +29,7 @@ export const useStoreActions = () => {
 
   const getUserDataScroll = React.useCallback(
     (text: string, currentPage: number) => {
-      dispatch(
-        searchAction.searchLoading({ username: text, page: currentPage })
-      );
+      dispatch(Search.searchLoading({ username: text, page: currentPage }));
     },
     []
   );

@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
-import { searchSelector } from 'redux/search';
-import { profileSelector } from '../redux/profile';
+import { profile, search } from 'packages/getStore';
 
-export const getState = () => {
+export const getStateSearch = () => {
   const {
     isLoading,
     error,
@@ -11,7 +10,7 @@ export const getState = () => {
     totalCount,
     users,
     scrollError,
-  } = useSelector(searchSelector);
+  } = useSelector(search);
 
   return {
     isLoading,
@@ -24,8 +23,8 @@ export const getState = () => {
   };
 };
 
-export const getStateUser = () => {
-  const { user, isLoading } = useSelector(profileSelector);
+export const getStateProfile = () => {
+  const { user, isLoading } = useSelector(profile);
 
   return { user, isLoading };
 };

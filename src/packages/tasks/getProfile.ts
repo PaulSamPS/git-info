@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { profile } from 'redux/http';
+import { profile } from 'packages/requests';
 
-export const profileAction = createAsyncThunk(
+export const getProfile = createAsyncThunk(
   'profile',
   async (username: string, { rejectWithValue }) => {
     try {

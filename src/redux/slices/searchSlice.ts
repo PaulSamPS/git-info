@@ -1,7 +1,7 @@
 import { LocalSearch, LocalSearchUsersItem } from 'types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { extractSearchItems } from 'helpers/extract';
-import { searchAction } from 'redux/search';
+import { Search } from 'packages/tasks';
 
 type UserSlice = {
   users: LocalSearchUsersItem[];
@@ -39,11 +39,11 @@ const searchUsers = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(searchAction.search.pending, (state) => {
+      .addCase(Search.getSearch.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(
-        searchAction.search.fulfilled,
+        Search.getSearch.fulfilled,
         (state, action: PayloadAction<LocalSearch>) => {
           const { totalCount, items } = action.payload;
 
@@ -54,18 +54,18 @@ const searchUsers = createSlice({
           state.currentPage = 1;
         }
       )
-      .addCase(searchAction.search.rejected, (state, action) => {
+      .addCase(Search.getSearch.rejected, (state, action) => {
         state.error = action.payload;
         state.text = '';
         state.users = [];
         state.totalCount = null;
         state.isLoading = false;
       })
-      .addCase(searchAction.searchLoading.pending, (state) => {
+      .addCase(Search.searchLoading.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(
-        searchAction.searchLoading.fulfilled,
+        Search.searchLoading.fulfilled,
         (state, action: PayloadAction<LocalSearch>) => {
           const { totalCount, items } = action.payload;
 
@@ -74,7 +74,7 @@ const searchUsers = createSlice({
           state.totalCount = totalCount;
         }
       )
-      .addCase(searchAction.searchLoading.rejected, (state, action) => {
+      .addCase(Search.searchLoading.rejected, (state, action) => {
         state.scrollError = action.payload;
         state.isLoading = false;
       });

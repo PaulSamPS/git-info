@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { searchScrollLoading, searchUsers } from 'redux/http';
+import { searchScrollLoading, searchUsers } from 'packages/requests';
 
 type ScrollLoading = {
   username: string;
   page: number;
 };
 
-export const search = createAsyncThunk(
-  'search-users',
+export const getSearch = createAsyncThunk(
+  'getSearch-users',
   async (username: string, { rejectWithValue }) => {
     try {
       return await searchUsers(username);
@@ -18,7 +18,7 @@ export const search = createAsyncThunk(
 );
 
 export const searchLoading = createAsyncThunk(
-  'search-users/scroll',
+  'getSearch-users/scroll',
   async ({ username, page }: ScrollLoading, { rejectWithValue }) => {
     try {
       return await searchScrollLoading(username, page);

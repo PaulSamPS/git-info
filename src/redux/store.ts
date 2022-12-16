@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { searchReducer } from 'redux/search';
-import { profileReducer } from 'redux/profile';
+import { searchReducer, profileReducer } from 'redux/slices';
 
 export const store = configureStore({
   reducer: {
