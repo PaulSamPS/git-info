@@ -6,8 +6,8 @@ import { Backward, ProfileCard } from 'entity';
 export const ProfileTemplate = () => {
   const { user, joinedDate, isLoading } = useUser();
 
-  if (isLoading) {
-    return <Spinner position='absolute' />;
+  if (!isLoading) {
+    return <Spinner />;
   }
 
   return (

@@ -4,13 +4,13 @@ import { IconSpinner } from './assets';
 import styles from './Spinner.module.scss';
 
 interface SpinnerProps extends React.AllHTMLAttributes<HTMLSpanElement> {
-  position?: 'absolute' | 'relative';
+  position?: 'fixed' | 'relative';
   color?: 'white';
 }
 
 export const Spinner = React.memo(
   ({
-    position = 'absolute',
+    position = 'fixed',
     color,
     className,
     'aria-label': ariaLabel = 'Загружается...',

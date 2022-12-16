@@ -22,7 +22,7 @@ export const SearchResult = () => {
         />
       ))}
       {state.users.length <= 0 && !state.isLoading && <Intro />}
-      {state.isLoading && <Spinner position='absolute' />}
+      {state.isLoading && <Spinner />}
       <Error err={state.scrollError && !state.error} isBlock />
       <Error err={state.error && !state.scrollError} isBlock />
     </>

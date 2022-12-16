@@ -1,12 +1,10 @@
 .container {
 	width: 100%;
-	height: calc(100vh - 10px);
 	padding: 0 24px;
 	position: relative;
 
 	@media (min-width: 767px) {
 		width: 734px;
-		height: calc(100vh - 10px);
 		padding: 0;
 		margin: 0 auto;
 		position: relative;
