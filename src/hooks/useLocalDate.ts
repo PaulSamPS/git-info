@@ -1,13 +1,13 @@
 import React from 'react';
 
+const localDate = new Intl.DateTimeFormat('ru-GB', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+});
+
 export const useLocalDate = (date: string) => {
   const [joinedDate, setJoinedDate] = React.useState<string>('');
-
-  const localDate = new Intl.DateTimeFormat('ru-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
 
   React.useEffect(() => {
     if (date) {
