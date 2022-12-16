@@ -1,4 +1,4 @@
-import { searchSlice } from 'redux/slices';
+import { searchSlice } from 'store/slices';
 import { useAppDispatch } from 'hooks';
 import React from 'react';
 import { Search, Profile } from 'packages/tasks';
