@@ -11,8 +11,8 @@ body[data-theme='light'] {
 body[data-theme='dark'] {
 	--color-theme: var(--gray);
 	--color-hover-theme: var(--gray-100);
-	--bg-theme: var(--gray-400);
-	--bg-2-theme: var(--gray-500);
+	--bg-theme: var(--black-light);
+	--bg-2-theme: var(--black);
 	--border-theme: var(--border-dark);
 
 	background-color: var(--bg-2-theme);
