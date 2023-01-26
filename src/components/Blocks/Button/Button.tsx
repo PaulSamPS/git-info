@@ -3,7 +3,8 @@ import { Spinner } from 'components/Blocks';
 import cx from 'clsx';
 import styles from './Button.module.scss';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   type: 'submit' | 'button';
   width?: number;

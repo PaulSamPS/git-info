@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'clsx';
-import { IconSpinner } from './assets';
+import { IconSpinner } from 'helpers/icons';
 import styles from './Spinner.module.scss';
 
 interface SpinnerProps extends React.AllHTMLAttributes<HTMLSpanElement> {

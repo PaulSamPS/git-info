@@ -1,6 +1,6 @@
 import { CardGrid } from 'components/Blocks';
 import { Caption, Text } from 'components/Typography';
-import { StatType } from 'types/components';
+import { StatType } from 'entity/Profile/types';
 
 export const Stat = ({ repos, following, followers, username }: StatType) => (
   <CardGrid column='3'>

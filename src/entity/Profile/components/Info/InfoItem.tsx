@@ -1,6 +1,6 @@
 import { CardGrid } from 'components/Blocks';
 import React from 'react';
-import { InfoItemType } from 'types/components';
+import { InfoItemType } from 'entity/Profile/types';
 import { Caption } from 'components/Typography';
 
 export const InfoItem = ({ text, icon, isLink }: InfoItemType) => {

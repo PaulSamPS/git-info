@@ -2,7 +2,8 @@ import React, { ForwardedRef, forwardRef, ReactNode } from 'react';
 import cx from 'clsx';
 import styles from './Input.module.scss';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode;
   id: string;
 }

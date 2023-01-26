@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { searchScrollLoading, searchUsers } from 'packages/requests';
+import { searchScrollLoading, searchUsers } from 'packages/http';
 
 type ScrollLoading = {
   username: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LocalGithubUser } from '../user';
+import { LocalGithubUser } from '../../../types/user';
 
 export type InfoItemType = {
   icon: React.ReactNode;

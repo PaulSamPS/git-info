@@ -1,5 +1,5 @@
 import React from 'react';
-import { InfoType } from 'types/components';
+import { InfoType } from 'entity/Profile/types';
 import { CardGrid } from 'components/Blocks';
 import { IconCompany, IconLocation, IconTwitter, IconWebsite } from './assets';
 import { InfoItem } from './InfoItem';

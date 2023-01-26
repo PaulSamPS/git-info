@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { profile } from 'packages/requests';
+import { profile } from 'packages/http';
 
 export const getProfile = createAsyncThunk(
   'profile',

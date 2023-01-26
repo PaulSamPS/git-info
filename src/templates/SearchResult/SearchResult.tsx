@@ -4,6 +4,7 @@ import { useScrollLoading } from 'hooks';
 import { SearchInfo } from 'entity/SearchResult';
 import { Intro } from 'entity';
 import { State } from 'packages/tasks';
+import emoji from 'helpers/icons/emoji.png';
 
 export const SearchResult = () => {
   const state = State.getStateSearch();
@@ -21,7 +22,13 @@ export const SearchResult = () => {
           avatar={user.avatar}
         />
       ))}
-      {state.users.length <= 0 && !state.isLoading && <Intro />}
+      {state.users.length <= 0 && !state.isLoading && (
+        <Intro
+          icon={emoji}
+          alt='backhand index pointing up'
+          text='Введите имя пользователя для поиска.'
+        />
+      )}
       {state.isLoading && <Spinner />}
       <Error err={state.scrollError && !state.error} isBlock />
       <Error err={state.error && !state.scrollError} isBlock />

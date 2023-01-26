@@ -1,16 +1,22 @@
 import React from 'react';
-import { Button } from 'components/Blocks';
 import { useSearch } from 'hooks';
-import { FormLayout, Input } from 'components/Form';
-import { IconSearch } from './assets';
+import type { ButtonProps } from 'components/Blocks';
+import type { InputProps } from 'components/Form';
+import styles from './Search.module.scss';
 
-export const Search = () => {
+interface SearchProps {
+  Input: React.ComponentType<InputProps>;
+  Button: React.ComponentType<ButtonProps>;
+  icon: React.ReactNode;
+}
+
+export const Search = ({ Input, Button, icon }: SearchProps) => {
   const { handleSubmit, handleOnChange, isDisabled, isLoading } = useSearch();
 
   return (
-    <FormLayout onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <Input
-        icon={<IconSearch />}
+        icon={icon}
         onChange={handleOnChange}
         placeholder='Поиск по имени пользователя'
         autoFocus
@@ -26,6 +32,6 @@ export const Search = () => {
       >
         Поиск
       </Button>
-    </FormLayout>
+    </form>
   );
 };

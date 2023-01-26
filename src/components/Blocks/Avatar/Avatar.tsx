@@ -1,11 +1,7 @@
 import React from 'react';
-import { LocalGithubUser } from 'types';
 import cx from 'clsx';
+import { AvatarProps } from 'entity/Profile/types/avatar';
 import styles from './Avatar.module.scss';
-
-interface AvatarProps
-  extends React.ImgHTMLAttributes<HTMLImageElement>,
-    Pick<LocalGithubUser, 'avatar' | 'login'> {}
 
 export const Avatar = ({
   avatar,
