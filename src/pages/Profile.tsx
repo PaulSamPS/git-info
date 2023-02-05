@@ -1,6 +1,6 @@
 import React from 'react';
-import { ProfileTemplate } from 'templates';
+import { ProfileWidget } from 'widgets/ProfileWidget';
 
-const Profile = () => <ProfileTemplate />;
+const ProfilePage = () => <ProfileWidget />;
 
-export default Profile;
+export default ProfilePage;

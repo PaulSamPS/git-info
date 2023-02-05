@@ -1,15 +1,16 @@
-import { withProviders } from 'hoc';
-import { Routing } from 'routing';
-import 'styles/index.scss';
-import { Button, Container } from 'components/Blocks';
-import { Search } from 'entity';
-import { TemplateHeader } from 'templates';
-import { Input } from 'components/Form';
-import { IconSearch } from 'helpers/icons';
+import { withProviders } from 'app/hoc';
+import { Routing } from 'app/routing';
+import 'app/styles/index.scss';
+import { Container } from 'shared/ui/Container';
+import { Search } from 'entities/Search';
+import { HeaderWidget } from 'widgets/HeaderWidget';
+import { Input } from 'shared/ui/Input';
+import { IconSearch } from 'shared/assets';
+import { Button } from 'shared/ui/Button';
 
 const App = () => (
   <Container>
-    <TemplateHeader />
+    <HeaderWidget />
     <Search Button={Button} Input={Input} icon={<IconSearch />} />
     <main>
       <Routing />
